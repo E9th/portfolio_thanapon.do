@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const totalImages = carouselImages.length;
     const carousel = document.querySelector('.carousel');
 
-        // ตั้งค่าความกว้างของภาพในคาร์เซล
+    // ตั้งค่าความกว้างของภาพในคาร์เซล
     const imageWidth = 100 / totalImages; // เปอร์เซ็นต์ของความกว้างที่ต้องการให้ภาพแต่ละภาพใช้
 
     carouselImages.forEach(image => {
-        image.style.width = `${imageWidth}%`; // ใช้ backtick และ template literals
+        image.style.width = ${imageWidth}%; // ใช้ backtick และ template literals
     });
 
     // เพิ่มฟังก์ชันการเลื่อนภาพ
