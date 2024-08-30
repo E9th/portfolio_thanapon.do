@@ -12,6 +12,41 @@ body{
     background: #212529;
 }
 
+.wrapper_img,
+.content {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.content {
+  overflow-x: hidden;
+}
+
+.content .section {
+  width: 100%;
+  height: 100vh;
+}
+
+.image-container {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  perspective: 500px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
 .navbar{
     display: flex;
     align-items: center;
@@ -261,137 +296,375 @@ body{
 .skills .right .item i{
     color: #fff;
     font-size: 34px;
-}  
-.separator .certificate_card{
+}
+
+.separator .certificate_card {
     display: flex;
     padding: 0 35px;
     min-height: 500px;
     align-items: center;
     justify-content: center;
     background: #292b2a;
-}
-
-.separator .certificate_card .wrapper{
-    display: flex;
-    max-width: 1200px;
     position: relative;
 }
 
-.wrapper i{
-    top: 50%;
+.separator .certificate_card .wrapper {
+    display: flex;
+    max-width: 1200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.wrapper .left-card, .wrapper .right-card {
     height: 44px;
     width: 44px;
     color: #343F4F;
     cursor: pointer;
     font-size: 16px;
-    position: absolute;
     text-align: center;
     line-height: 44px;
     background: #fff;
-    border-radius: 50%;
-    transform: translateY(-50%);
-    transition: transform 0.1s linear;
+    border-radius: 10px;
+    justify-alignment: space-between;
+    margin: 50px;
 }
 
-.wrapper i:active{
+.wrapper .left-card {
+    left: 50px; /* ระยะห่างจากขอบซ้าย */
+}
+
+.wrapper .right-card {
+    right: 50px; /* ระยะห่างจากขอบขวา */
+}
+
+.wrapper i:active {
     transform: translateY(-50%) scale(0.9);
 }
 
-.wrapper i:hover{
+.wrapper i:hover {
     background: #ffb742;
 }
 
-.wrapper i:first-child{
-    left: -22px;
-    display: none;
-}
-
-.wrapper i:last-child{
-    right: -22px;
-}
-
-.wrapper .carousel{
-    font-size: 0px;
-    cursor: pointer;
+.wrapper .carousel {
+    display: flex;
+    cursor: grab;
     overflow: hidden;
     white-space: nowrap;
     scroll-behavior: smooth;
 }
 
-.certificate_card .carousel{
-    cursor: grab;
-    scroll-behavior: auto;
-}
-
-.certificate_card .carousel{
-    pointer-events: none;
-}
-
-.certificate_card .carousel img{
+.wrapper .carousel img {
     height: 340px;
     object-fit: cover;
     user-select: none;
     margin-left: 14px;
-    width: calc(100% / 3);
+    flex-shrink: 0;
 }
 
-.certificate_card .carousel:first-child{
-    margin-left: 0;
+footer{
+    position: relative;
+    background: #1c1c1c;
+    padding: 80px 50px 40px;
+    margin-top: 100px;
 }
 
-@media (max-width: 900px) {
-    .certificate_card .carousel {
-        width: calc(100% / 2);
-    }
-}
-
-@media (max-width: 550px) {
-    .certificate_card .carousel {
-        width: 100%;
-    }
-}
-
-footer {
-    background: #292b2a;
-    padding: 50px;
-    color: #fff;
-}
-
-.cols {
+footer .start{
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    background-color: #ffb742;
+    padding: 30px 25px;
+    border-radius: 15px;
+    width: 70%;
+    top: -16%;
+    left: 15%;
 }
 
-.about-col {
-    flex: 1;
+footer .start p{
+    font-size: 13px;
+    width: 35%;
 }
 
-.about-col h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
+footer .start button{
+    background: transparent;
+    border: 1px solid #000;
+    cursor: pointer;
+    padding: 8px 20px;
+    border-radius: 100px;
+    transition: all 0.3s ease;
 }
 
-.about-col p {
-    font-size: 14px;
+footer .start button:hover{
+    background-color: #fff;
+    border-color: #fff;
 }
 
-.link-col {
-    flex: 1;
+footer .cols{
+    display: flex;
+    align-items: start;
 }
 
-.link-col h4 {
-    font-size: 18px;
-    margin-bottom: 10px;
+footer .cols .about-col{
+    flex: 3;
 }
 
-.link-col a {
-    display: block;
-    color: #fff;
-    text-decoration: none;
-    margin-bottom: 5px;
-    font-size: 14px;
-}
-
-.link-col a:hover {
+footer .cols .about-col h3{
     color: #ffb742;
+    margin-bottom: 20px;
+}
+
+footer .cols .about-col p{
+    color: #ccc;
+    font-size: 13px;
+}
+
+footer .cols .links-col{
+    flex: 3;
+}
+
+footer .cols .links-col h4, footer .cols .news-col h4{
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+footer .cols .links-col a{
+    display: block;
+    text-decoration: none;
+    color: #7b7b7b;
+    font-size: 14px;
+    line-height: 26px;
+    transition: color 0.3s ease;
+}
+
+footer .cols .links-col a:hover{
+    color: #ffb742;
+}
+
+footer .cols .news-col{
+    flex: 3;
+}
+
+footer .cols .news-col p{
+    color: #7b7b7b;
+    font-size: 15px;
+}
+
+footer .cols .news-col form{
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+
+footer .cols .news-col form input{
+    width: 100%;
+    background: #212529;
+    border: none;
+    padding: 13px;
+    border-radius: 100px;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+footer .cols .news-col form button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: #ffb742;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+footer .cols .news-col form button:hover{
+    background-color: #fb8c00;
+}
+
+footer .cols .news-col form button i{
+    font-size: 26px;
+}
+
+@media screen and (max-width: 1100px) {
+    .guarantee{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .guarantee .item{
+        flex-basis: 49%;
+    }
+
+    .skills{
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .skills .left{
+        width: 500px;
+    }
+
+    .skills .left .info h3{
+        font-size: 22px;
+    }
+
+    .skills .left .info p{
+        font-size: 12px;
+    }
+
+    footer{
+        margin-top: 150px;
+    }
+
+    footer .start{
+        width: 90%;
+        left: 5%;
+        top: -20%;
+    }
+
+    footer .cols{
+        flex-wrap: wrap;
+    }
+
+    footer .cols .about-col{
+        flex-basis: 50%;
+    }
+
+    footer .cols .links-col{
+        flex-basis: 50%;
+    }
+
+    footer .cols .news-col{
+        flex-basis: 50%;
+    }
+
+}
+
+@media screen and (max-width: 780px) {
+    
+    .navbar button{
+        display: none;
+    }
+
+    .main h4{
+        font-size: 24px;
+    }
+
+    .main p.title{
+        font-size: 36px;
+    }
+
+    .main p.subtitle{
+        font-size: 14px;
+    }
+
+    .guarantee .item{
+        flex-basis: 100%;
+    }
+
+    .about{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}
+
+@media screen and (max-width: 650px) {
+    
+    .navbar{
+        justify-content: center;
+    }
+
+    .navbar h2{
+        display: none;
+    }
+
+    .navbar ul li a{
+        font-size: 14px;
+    }
+
+    .main{
+        margin-top: 50px;
+        height: 320px;
+        justify-content: start;
+    }
+
+    .main h4{
+        font-size: 20px;
+    }
+
+    .main p.title{
+        font-size: 28px;
+    }
+
+    .main p.subtitle{
+        font-size: 12px;
+    }
+
+    .main img{
+        margin-top: 40px;
+        width: 150px;
+        height: 150px;
+    }
+
+    .skills{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .skills .right{
+        justify-content: space-between;
+    }
+
+    .skills .left .info h3{
+        font-size: 20px;
+    }
+
+    footer .start{
+        top: -8%;
+    }
+
+    footer .start p{
+        display: none;
+    }
+
+    footer .cols .about-col{
+        flex-basis: 100%;
+        margin-bottom: 40px;
+    }
+
+    footer .cols .links-col{
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+
+    footer .cols .news-col{
+        flex-basis: 100%;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    
+    .main p.title{
+        font-size: 18px;
+    }
+
+    .main p.subtitle{
+        font-size: 10px;
+    }
+
+    .guarantee .item .info h3{
+        font-size: 20px;
+    }
+
+    .guarantee .item .info p{
+        font-size: 12px;
+    }
+
 }
