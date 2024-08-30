@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const carousel = document.querySelector('.carousel');
 
     // ตั้งค่าความกว้างของภาพในคาร์เซล
-    const imageWidth = 100 / totalImages; // เปอร์เซ็นต์ของความกว้างที่ต้องการให้ภาพแต่ละภาพใช้
+    const imageWidth = carousel.clientWidth / totalImages; // กำหนดความกว้างเป็นขนาดจริงแทนที่จะใช้เปอร์เซ็นต์
 
     carouselImages.forEach(image => {
-        image.style.width = `${imageWidth}%`; // ใช้ backtick และ template literals อย่างถูกต้อง
+        image.style.width = `${imageWidth}px`; // กำหนดความกว้างเป็น pixel เพื่อควบคุมขนาดภาพ
     });
 
     // เพิ่มฟังก์ชันการเลื่อนภาพ
@@ -32,8 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-console.clear();
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -66,9 +64,3 @@ window.addEventListener("load", () => {
     );
 });
 
-document.querySelector('.myButton').addEventListener('click', function() {
-    document.querySelector('#mySection').scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-    });
-});
