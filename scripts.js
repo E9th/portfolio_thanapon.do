@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const imageWidth = 100 / totalImages; // เปอร์เซ็นต์ของความกว้างที่ต้องการให้ภาพแต่ละภาพใช้
 
     carouselImages.forEach(image => {
-        image.style.width = `${imageWidth}%`; // ใช้ backtick และ template literals
+        image.style.width = `${imageWidth}%`; // ใช้ backtick และ template literals อย่างถูกต้อง
     });
 
     // เพิ่มฟังก์ชันการเลื่อนภาพ
