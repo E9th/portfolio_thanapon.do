@@ -50,7 +50,7 @@ window.addEventListener("load", () => {
         markers: true
       }
     })
-    .to("img", {
+    .to(".font_img img", {
       scale: 2,
       z: 350,
       transformOrigin: "center center",
