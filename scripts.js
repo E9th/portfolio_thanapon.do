@@ -50,21 +50,12 @@ window.addEventListener("load", () => {
         markers: true
       }
     })
-    .to(".font_img img", {
-      scale: 2,
+    .to(".image-container", {
+      scale: 5,
       z: 350,
       transformOrigin: "center center",
       ease: "power1.inOut"
     })
-    .to(
-      ".section.hero",
-      {
-        scale: 1.1,
-        transformOrigin: "center center",
-        ease: "power1.inOut"
-      },
-      "<"
-    );
 });
 
 document.querySelector('.myButton').addEventListener('click', function() {
