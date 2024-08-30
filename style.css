@@ -28,7 +28,7 @@ body{
   height: 100vh;
 }
 
-.font_img {
+.image-container {
   width: 100%;
   height: 100vh;
   position: absolute;
@@ -40,7 +40,7 @@ body{
   overflow: hidden;
 }
 
-.font_img img {
+.image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
