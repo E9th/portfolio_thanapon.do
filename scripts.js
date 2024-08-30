@@ -3,6 +3,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const totalImages = carouselImages.length;
     const carousel = document.querySelector('.carousel');
 
+    if (carousel && carouselImages.length > 0) {
+        // ตั้งค่าความกว้างของภาพในคาร์เซล
+        const imageWidth = carousel.clientWidth / totalImages;
+
+        carouselImages.forEach(image => {
+            image.style.width = `${imageWidth}px`;
+        });
+
         // เพิ่มฟังก์ชันการเลื่อนภาพ
         const leftButton = document.querySelector('.left-card');
         const rightButton = document.querySelector('.right-card');
@@ -44,7 +52,6 @@ window.addEventListener("load", () => {
       }
     })
     .to("img", {
-      scale: 2,
       z: 350,
       transformOrigin: "center center",
       ease: "power1.inOut"
