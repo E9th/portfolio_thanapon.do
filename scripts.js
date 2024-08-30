@@ -52,6 +52,7 @@ window.addEventListener("load", () => {
       }
     })
     .to("img", {
+      scale: 2,
       z: 350,
       transformOrigin: "center center",
       ease: "power1.inOut"
